@@ -1,0 +1,37 @@
+.notFound {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.icon {
+    width: 150px;
+    height: auto;
+}
+
+.content {
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.content a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.content a:hover {
+    color: #2980b9;
+}

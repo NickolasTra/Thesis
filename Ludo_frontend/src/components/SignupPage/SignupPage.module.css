@@ -1,0 +1,146 @@
+/* SignupPage.module.css */
+.signupPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    background-color: #f0f4f8;
+    padding: 2rem;
+    padding-bottom: 8rem;
+}
+
+.signupCard {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.signupCard:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    width: 90px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1.75rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.inputGroup {
+    position: relative;
+    margin-right: 2rem;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+button {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.errorMessage {
+    color: #e74c3c;
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.loginLink {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.loginLink a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.loginLink a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.inputError {
+    border-color: #e74c3c;
+}
+
+.errorText {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: -20px;
+    left: 4px;
+    transition: opacity 0.3s ease;
+}
+
+@media (max-width: 480px) {
+    .signupCard {
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    button {
+        padding: 0.8rem;
+    }
+}
