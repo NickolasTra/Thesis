@@ -1,0 +1,10 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Additional common ignores
+.DS_Store
+npm-debug.log
+yarn-error.log
