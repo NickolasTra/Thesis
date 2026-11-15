@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
 import io from "socket.io-client";
+import { API_URL } from "../config";
 
 const SocketContext = createContext(null);
 
@@ -15,7 +16,7 @@ export const SocketProvider = ({ children }) => {
     const MAX_RECONNECT_ATTEMPTS = 5;
 
     useEffect(() => {
-        const newSocket = io("https://tragiannis.site", {
+        const newSocket = io(API_URL, {
             reconnectionAttempts: MAX_RECONNECT_ATTEMPTS,
             reconnectionDelay: 1000,
             transports: ["websocket"],

@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useCallback } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import { API_URL } from "../config";
 
 const AuthContext = createContext();
 
@@ -27,7 +28,7 @@ export const AuthProvider = ({ children }) => {
 
   const refreshAccessToken = useCallback(async () => {
     try {
-      const response = await axios.post('https://tragiannis.site/api/users/refresh-token', { refreshToken });
+      const response = await axios.post(`${API_URL}/api/users/refresh-token`, { refreshToken });
       const newAccessToken = response.data.accessToken;
       setAccessToken(newAccessToken);
       localStorage.setItem('accessToken', newAccessToken);
@@ -85,7 +86,7 @@ export const AuthProvider = ({ children }) => {
   const logout = useCallback(async () => {
     setIsLoading(true);
     try {
-      await axios.post('https://tragiannis.site/api/users/logout', { refreshToken });
+      await axios.post(`${API_URL}/api/users/logout`, { refreshToken });
     } catch (error) {
       console.error('Logout error:', error);
     } finally {
@@ -101,7 +102,7 @@ export const AuthProvider = ({ children }) => {
   }, [refreshToken]);
 
   const axiosAuth = axios.create({
-    baseURL: 'https://tragiannis.site/api',
+    baseURL: `${API_URL}/api`,
     headers: {
       'Content-Type': 'application/json',
     },

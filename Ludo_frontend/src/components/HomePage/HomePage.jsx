@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './HomePage.module.css';
+import { API_URL } from '../../config';
 
 const HomePage = () => {
     const [leaderboard, setLeaderboard] = useState([]);
@@ -7,7 +8,7 @@ const HomePage = () => {
     useEffect(() => {
         const fetchLeaderboard = async () => {
             try {
-                const response = await fetch('https://tragiannis.site/api/users/leaderboard');
+                const response = await fetch(`${API_URL}/api/users/leaderboard`);
                 const data = await response.json();
                 setLeaderboard(data);
             } catch (error) {

@@ -20,8 +20,12 @@ def resource_path(relative_path):
     try:
         base_path = sys._MEIPASS
     except Exception:
-        base_path = os.path.dirname(__file__)
+        base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
+
+# Backend and website addresses. Override with environment variables.
+SERVER_URL = os.environ.get("LUDO_SERVER_URL", "http://localhost:3001")
+WEB_URL = os.environ.get("LUDO_WEB_URL", "http://localhost:3000")
 
 class LudoGame:
     def __init__(self):
@@ -44,7 +48,7 @@ class LudoGame:
         self.game_ended = False
 
         self.network_manager = NetworkManager()
-        self.network_manager.connect("https://tragiannis.site")
+        self.network_manager.connect(SERVER_URL)
         self.app_token = self.network_manager.generate_app_token()
 
         self.font = pygame.font.Font(None, 24)
@@ -112,7 +116,7 @@ class LudoGame:
 
         for attempt in range(max_retries):
             try:
-                success = webbrowser.open(f"https://tragiannis.site/login?appToken={self.app_token}")
+                success = webbrowser.open(f"{WEB_URL}/login?appToken={self.app_token}")
                 if success:
                     self.game_loop()
                     return

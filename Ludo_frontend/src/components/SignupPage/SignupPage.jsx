@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import styles from './SignupPage.module.css';
 import axios from 'axios';
+import { API_URL } from '../../config';
 
 const SignupPage = () => {
     const [formData, setFormData] = useState({
@@ -85,7 +86,7 @@ const SignupPage = () => {
         }
 
         try {
-            const response = await axios.post('https://tragiannis.site/api/users/register', formData, {
+            const response = await axios.post(`${API_URL}/api/users/register`, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

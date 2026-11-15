@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import styles from './LoginPage.module.css';
 import axios from 'axios';
+import { API_URL } from '../../config';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -39,7 +40,7 @@ const LoginPage = () => {
     setSuccessMessage('');
 
     try {
-      const response = await axios.post('https://tragiannis.site/api/users/login', {...formData, appToken: appToken}, {
+      const response = await axios.post(`${API_URL}/api/users/login`, {...formData, appToken: appToken}, {
         headers: {
           'Content-Type': 'application/json',
         },
