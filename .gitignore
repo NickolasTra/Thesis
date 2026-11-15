@@ -1,17 +1,30 @@
-# Node modules
-*/node_modules/
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
 
-# Environment variables
-*/.env
+# Environment variables / secrets
+.env
+.env.*
 
-# Build directories
+# Frontend build output
 Ludo_frontend/build/
 
-# Additional common ignores
-.DS_Store
-npm-debug.log
-yarn-error.log
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
 
-# IDE files (optional)
+# PyInstaller output
+multiPlayer_ludo/build/
+multiPlayer_ludo/dist/
+*.exe
+
+# IDE files
 .vscode/
 .idea/
+
+# OS files
+.DS_Store
+Thumbs.db
